@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import styled from "styled-components"
 import Welcome from "./components/Welcome"
 import Posts from "./components/Posts"
+import RegisterPost from "./components/RegisterPost"
+import EditPost from "./components/EditPost"
 
 const HeaderContainer = styled.header`
     display: flex;
@@ -37,7 +39,7 @@ function App() {
                     <Link to='/posts' style={{color: "#000", textDecoration: "none"}}>Posts</Link>
                 </ItemNav>
                 <ItemNav>
-                    New Post
+                    <Link to='/posts/create' style={{color: "#000", textDecoration: "none"}}>New Post</Link>
                 </ItemNav>
             </ul>
         </nav>
@@ -47,6 +49,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcome />} />
         <Route path="/posts" element={<Posts />} />
+        <Route path="/posts/create" element={<RegisterPost />} />
+        <Route path="/post/:postId" element={<EditPost />} />
       </Routes>
     </BrowserRouter>
   )

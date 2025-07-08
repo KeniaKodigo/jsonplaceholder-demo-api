@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { getPosts } from '../services/postServices';
+import { Link } from 'react-router-dom';
 
 const Container = styled.section`
     margin: 2.5rem 5rem;
@@ -42,6 +43,7 @@ export default function Posts() {
                                 <h4>{item.title}</h4>
                                 <p>{item.body}</p>
                                 <p><b>userId: </b>{item.userId}</p>
+                                <Link to={`/post/${item.id}`}>Editar Publicacion</Link>
                             </div>
                         )
                     })
